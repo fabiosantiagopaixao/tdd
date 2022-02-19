@@ -18,8 +18,8 @@ public class BookingService {
         Optional<BookingModel> bookingModelOptional = bookingRepository.findByReserveName(name);
 
         return Period.between(
-                bookingModelOptional.isPresent().get().getCheckIn(),
-                bookingModelOptional.isPresent().get().getCheckOut()
+                bookingModelOptional.get().getCheckIn(),
+                bookingModelOptional.get().getCheckOut()
         ).getDays();
     }
 }
